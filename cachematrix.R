@@ -1,5 +1,6 @@
 ## makeCacheMatrix and cacheSolve encapsulate matrix and it's inversed value.
-## inversed matrix is cached into memory, so calculated only once.
+## inversed matrix is cached into memory, so calculation happens only once.
+## On the other hand, we need extra memory to hold cached value. 
 ##
 
 ## makeCacheMatrix creates variable which:
