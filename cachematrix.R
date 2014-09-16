@@ -1,15 +1,15 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix and cacheSolve encapsulate matrix and it's inversed value.
+## inversed matrix is cached into memory, so calculated only once.
+##
 
-
-## makeCacheMatrix creates complex variable which can:
-## 1. hold matrix value(aka aMatrix variable)
-## 2. hold inverse of the matrix (aSolvedMatrix)
+## makeCacheMatrix creates variable which:
+## 1. holds matrix value(aka aMatrix variable)
+## 2. holds inverse of the matrix (aSolvedMatrix). It's populated on first cacheSolve() call.
 ## supported operations:
-## -set original matrix (makeCacheMatrix's set)
-## -get original matrix (makeCacheMatrix's get)
-## -set inverse of aMatrix (makeCacheMatrix's setCached)
-## -get inverse of aMatrix (makeCacheMatrix's getCached)
+## -set original matrix (makeCacheMatrix's set).
+## -get original matrix (makeCacheMatrix's get).
+## -setCached set inverse of aMatrix (makeCacheMatrix's setCached).
+## -getCached get inverse of aMatrix (makeCacheMatrix's getCached).
 
 makeCacheMatrix <- function(aMatrix = matrix()) {
     aSolvedMatrix <- NULL;
@@ -29,7 +29,7 @@ makeCacheMatrix <- function(aMatrix = matrix()) {
 
 ## cacheSolve finds inverse value(matrix) of supplied matrix.
 ## Caches solved value to avoid complex computations, 
-## so real solving happens on first call only.
+## so real processing happens on first call only.
 ## precondition:
 ## aMatrix must be created with appropriate makeCacheMatrix call
 cacheSolve <- function(aMatrix, ...) {
