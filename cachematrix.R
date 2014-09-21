@@ -9,8 +9,8 @@
 ## supported operations:
 ## -set original matrix (makeCacheMatrix's set).
 ## -get original matrix (makeCacheMatrix's get).
-## -setCached set inverse of aMatrix (makeCacheMatrix's setCached).
-## -getCached get inverse of aMatrix (makeCacheMatrix's getCached).
+## -set inverse of aMatrix (makeCacheMatrix's setCached).
+## -get inverse of aMatrix (makeCacheMatrix's getCached).
 
 makeCacheMatrix <- function(aMatrix = matrix()) {
     aSolvedMatrix <- NULL;
@@ -27,17 +27,16 @@ makeCacheMatrix <- function(aMatrix = matrix()) {
 }
 
 
-
+## Return a matrix that is the inverse of 'aMatrix'
 ## cacheSolve finds inverse value(matrix) of supplied matrix.
 ## Caches solved value to avoid complex computations, 
 ## so real processing happens on first call only.
 ## precondition:
 ## aMatrix must be created with appropriate makeCacheMatrix call
 cacheSolve <- function(aMatrix, ...) {
-    ## Return a matrix that is the inverse of 'aMatrix'
     aSolvedMatrix <- aMatrix$getCached();
     if(!is.null(aSolvedMatrix)) {
-        message("getting cached data");
+        ##message("getting cached data");
         return(aSolvedMatrix);
     }
     data <- aMatrix$get();
